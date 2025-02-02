@@ -47,7 +47,7 @@ This is the code base of my final project for [CDAC]()'s PG-DBDA course using Ai
     $ astro dev kill
     ```
 
-- To train ARIMA and auto-ARIMA run `ml-arima_pipeline` DAG
+- To train ARIMA and auto-ARIMA run `stock_market` DAG
 
 ## Endpoints
 - Airflow:
