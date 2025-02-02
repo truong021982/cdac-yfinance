@@ -8,24 +8,24 @@ This is the code base of my final project for [CDAC]()'s PG-DBDA course using Ai
 
 ## Prerequisites
 - Install docker
-- Create .env like below for docker compose under the root
-    ```
-    MLFLOW_S3_ENDPOINT_URL=http://minio:9000
-    MLFLOW_TRACKING_URI=http://mlflow:5000
+  - Create .env like below for docker compose under the root
+  ```
+  # MinIO
+  AWS_ACCESS_KEY_ID=minio
+  AWS_SECRET_ACCESS_KEY=minio123
+  AWS_REGION=us-east-1
 
-    _AIRFLOW_WWW_USER_USERNAME=airlfow
-    _AIRFLOW_WWW_USER_PASSWORD=airlfow
+  # MLFLOW config
+  MLFLOW_S3_ENDPOINT_URL=http://minio:9000
+  MLFLOW_TRACKING_URI=http://mlflow:5000
+  AWS_BUCKET_NAME=mlflow
 
-    AWS_ACCESS_KEY_ID=minio
-    AWS_SECRET_ACCESS_KEY=minio123
-
-    AWS_REGION=us-east-1
-    AWS_BUCKET_NAME=mlflow
-    MYSQL_DATABASE=mlflow
-    MYSQL_USER=mlflow
-    MYSQL_PASSWORD=mlflow
-    MYSQL_ROOT_PASSWORD=toor
-    ```
+  # MySQL config
+  MYSQL_DATABASE=mlflow
+  MYSQL_USER=mlflow_user
+  MYSQL_PASSWORD=mlflow_password
+  MYSQL_ROOT_PASSWORD=toor
+  ```
 ## Spark Requirements
 - SPARK_APPLICATION_ARGS contains stock-market/AAPL/prices.json
 - SPARK_APPLICATION_ARGS will be passed to the Spark application as an argument -e when running the Spark application from Airflow
