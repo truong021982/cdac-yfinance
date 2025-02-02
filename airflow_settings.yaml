@@ -1,0 +1,41 @@
+# This file allows you to configure Airflow Connections, Pools, and Variables in a single place for local development only.
+# NOTE: json dicts can be added to the conn_extra field as yaml key value pairs. See the example below.
+
+# For more information, refer to our docs: https://docs.astronomer.io/develop-project#configure-airflow_settingsyaml-local-development-only
+# For questions, reach out to: https://support.astronomer.io
+# For issues create an issue ticket here: https://github.com/astronomer/astro-cli/issues
+
+airflow:
+  connections:
+    - conn_id: minio
+      conn_type: aws
+      conn_extra:
+        aws_access_key_id: minio
+        aws_secret_access_key: minio123
+        endpoint_url: http://host.docker.internal:9000
+        region_name: us-east-1
+    - conn_id: postgres
+      conn_host: postgres
+      conn_type: postgres
+      conn_login: postgres
+      conn_password: postgres
+      conn_port: 5432
+    - conn_id: stock_api
+      conn_type: http
+      conn_host: https://query1.finance.yahoo.com
+      conn_schema:
+      conn_login:
+      conn_password:
+      conn_port:
+      conn_extra:
+        endpoint: "/v8/finance/chart/"
+        headers:
+          content-type: "application/json"
+          user-agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+  pools:
+    - pool_name:
+      pool_slot:
+      pool_description:
+  variables:
+    - variable_name:
+      variable_value:
