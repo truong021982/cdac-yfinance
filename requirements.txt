@@ -1,0 +1,16 @@
+# Astro Runtime includes the following pre-installed providers packages: https://docs.astronomer.io/astro/runtime-image-architecture#provider-packages
+minio==7.1.14
+apache-airflow-providers-docker==3.7.1
+apache-airflow-providers-slack==7.3.1
+statsmodels==0.14.4
+scipy==1.14.1
+pmdarima==2.0.4
+mlflow==2.19.0
+pymongo==4.10.1
+SQLAlchemy~=1.4.54
+requests~=2.32.3
+pendulum~=3.0.0
+pytest~=8.3.4
+fireducks==1.1.5
+yfinance==0.2.52
+jupyterlab==4.3.5
