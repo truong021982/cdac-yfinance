@@ -1,6 +1,6 @@
-# CDAC YFinance Final Project
+# CDAC Yahoo Finance Project
 
-This is the code base of my final project for [CDAC]()'s PG-DBDA course using Airflow, Spark and MLFlow. 
+This is my final project code-base for [CDAC]()'s PG-DBDA course using Airflow, MinIO, Spark and MLFlow. 
 
 ## Time Series Forecasting Introduction
 
@@ -27,9 +27,8 @@ This is the code base of my final project for [CDAC]()'s PG-DBDA course using Ai
   MYSQL_ROOT_PASSWORD=toor
   ```
 ## Spark Requirements
-- SPARK_APPLICATION_ARGS contains stock-market/AAPL/prices.json
 - SPARK_APPLICATION_ARGS will be passed to the Spark application as an argument -e when running the Spark application from Airflow
-- Also, make sure you allocated at least 8gb of RAM to Docker Desktop. Go to Docker Desktop -> Preferences -> Resources -> Advanced -> Memory
+- You need to allocate at least 8gb of RAM to Docker Desktop. To do this, go to Docker Desktop -> Preferences -> Resources -> Advanced -> Memory
 
 ## How to run
 - start all docker containers
