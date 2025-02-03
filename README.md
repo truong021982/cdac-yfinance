@@ -1,10 +1,15 @@
 # CDAC Yahoo Finance Project
 
-This is my final project code-base for [CDAC]()'s PG-DBDA course using Airflow, MinIO, Spark and MLFlow. 
+This repository is my final project for [CDAC]()'s PG-DBDA course using Airflow, MinIO, Spark and MLFlow. 
 
-## Time Series Forecasting Introduction
+## Time Series Forecasting
 
-<img src = "./ml-timeseries.png" width="90%">
+<img src = "./ml-timeseries.png" width="100%">
+
+## Architecture
+
+<img src = "./imgs/architecture.png" width="100%">
+
 
 ## Prerequisites
 - Install docker
@@ -46,15 +51,39 @@ This is my final project code-base for [CDAC]()'s PG-DBDA course using Airflow, 
     $ astro dev kill
     ```
 
-- To train ARIMA and auto-ARIMA run `stock_market` DAG
+- To train ARIMA run `stock_market` DAG
 
-## Endpoints
-- Airflow:
+## How to use Dashboards 
+### Airflow Dashboard: 
+
+Login creds is admin:admin
+
     - http://localhost:8080/
-- MLflow
+
+<img src = "./imgs/air_flow_1.png" width="100%">
+<img src = "./imgs/air_flow_2.png" width="100%">
+<img src = "./imgs/air_flow_3.png" width="100%">
+<img src = "./imgs/air_flow_4.png" width="100%">
+<img src = "./imgs/air_flow_5.png" width="100%">
+<img src = "./imgs/air_flow_6.png" width="100%">
+
+### MLflow Dashboard:
     - http://localhost:5000/
-- MinIO
+
+<img src = "./imgs/mlflow_1.png" width="100%">
+<img src = "./imgs/mlflow_2.png" width="100%">
+<img src = "./imgs/mlflow_3.png" width="100%">
+<img src = "./imgs/mlflow_4.png" width="100%">
+<img src = "./imgs/mlflow_5.png" width="100%">
+
+### MinIO Dashboard:
     - http://localhost:9000/
+
+<img src = "./imgs/minio_1.png" width="100%">
+<img src = "./imgs/minio_2.png" width="100%">
+<img src = "./imgs/minio_3.png" width="100%">
+<img src = "./imgs/minio_4.png" width="100%">
+<img src = "./imgs/minio_5.png" width="100%">
 
 ## References
 - Dockerized MLFlow Server

@@ -168,4 +168,13 @@ def _predict_price(logged_model: str, url: str, **kwargs) -> str:
     # Load model as a PyFuncModel.
     loaded_model = mlflow.statsmodels.load_model(logged_model)
 
+    storage_options = {
+        'key': 'minio',
+        'secret': "minio123",
+        'endpoint_url': "http://minio:9000",
+    }
 
+    df = pd.read_csv(url, storage_options=storage_options)
+
+    predictions = loaded_model.predict(start=0 ,end=len(df))
+    return json.dumps(predictions.tolist())
