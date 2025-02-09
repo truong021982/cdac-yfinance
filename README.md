@@ -44,6 +44,8 @@ This repository is my final project for [CDAC]()'s PG-DBDA course using Airflow,
 - Build the spark application
     ```bash
     $ docker build ./spark/notebooks/stock_transform -t airflow/spark-app
+    $ docker build ./spark/master -t airflow/spark-master
+    $ docker build ./spark/worker -t airflow/spark-worker
     ```
 - initialize the project
     ```bash
