@@ -32,7 +32,8 @@ if __name__ == '__main__':
 
         # Zip the arrays
         df_zipped = df_exploded.select(arrays_zip("timestamp", "close", "high", "low", "open", "volume").alias("zipped"))
-        df_zipped = df_zipped.select(explode("zipped")).select("col.timestamp", "col.close", "col.high", "col.low", "col.open", "col.volume")
+        df_zipped = df_zipped.select(explode("zipped")).select("col.timestamp", "col.close", "col.high", "col.low", \
+                                                               "col.open", "col.volume")
         df_zipped = df_zipped.withColumn('date', from_unixtime('timestamp').cast(DateType()))
 
         # Store in Minio

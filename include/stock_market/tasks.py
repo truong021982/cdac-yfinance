@@ -40,7 +40,8 @@ def _store_prices(prices):
 def _get_formatted_prices_url(location):
     # Get url of an object from s3.
     client = get_minio_client()
-    objects = client.list_objects(f'stock-market', prefix='AAPL/formatted_prices/', recursive=True)
+    objects = client.list_objects(f'stock-market', prefix='AAPL/formatted_prices/', \
+                                  recursive=True)
     csv_file = [obj for obj in objects if obj.object_name.endswith('.csv')][0]
     return f's3://{csv_file.bucket_name}/{csv_file.object_name}'
 
@@ -68,7 +69,6 @@ def _train_arima(url, trend="c", **kwargs) -> str:
     }
 
     df = pd.read_csv(url, storage_options=storage_options)
-
     # Convert the timestamp to datetime as follows. 's' for seconds, 'ms' for milliseconds
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s')
 
@@ -78,15 +78,7 @@ def _train_arima(url, trend="c", **kwargs) -> str:
     df = df.dropna()
     df.sort_index(ascending=True, inplace=True)
 
-    # # Split the dataset into train and test
-    # train_size = int(len(df) * 0.8)
-    # test_size = len(df) - train_size
-    # train, test = df.iloc[0:train_size], df.iloc[train_size:len(df)]
-    #
-    # logging.info('**' * 25)
-    # print('Training ARIMA Model...')
-    # logging.info('Train size: {}, Test size: {}'.format(len(train), len(test)))
-
+    # Find the best model
     p = q = range(0, 9)
     d = range(0, 3)
     # Generate all the combinations for p d q
@@ -128,7 +120,6 @@ def _train_arima(url, trend="c", **kwargs) -> str:
             model_summary = best_model.summary().as_text()
             with open(f"model_summary_{exp_name}.txt", "w") as f:
                 f.write(model_summary)
-
             y_pred = best_model.forecast(steps=1).values[0]
             aic = best_model.aic
             bic = best_model.bic

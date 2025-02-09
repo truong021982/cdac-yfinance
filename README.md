@@ -12,8 +12,14 @@ This repository is my final project for [CDAC]()'s PG-DBDA course using Airflow,
 
 
 ## Prerequisites
-- Install docker
-  - Create .env like below for docker compose under the root
+- Install docker. If you use docker on window, please do the following configuration for Docker Desktop:
+
+<img src = "./imgs/docker_desktop_1.png" width="100%">
+<img src = "./imgs/docker_desktop_2.png" width="100%">
+<img src = "./imgs/docker_desktop_3.png" width="100%">
+  
+- Install astro cli from Astronomer website
+- Create .env like below for docker compose under the root
   ```
   # MinIO
   AWS_ACCESS_KEY_ID=minio
@@ -32,10 +38,17 @@ This repository is my final project for [CDAC]()'s PG-DBDA course using Airflow,
   MYSQL_ROOT_PASSWORD=toor
   ```
 ## Spark Requirements
-- SPARK_APPLICATION_ARGS will be passed to the Spark application as an argument -e when running the Spark application from Airflow
 - You need to allocate at least 8gb of RAM to Docker Desktop. To do this, go to Docker Desktop -> Preferences -> Resources -> Advanced -> Memory
 
 ## How to run
+- Build the spark application
+    ```bash
+    $ docker build ./spark/notebooks/stock_transform -t airflow/spark-app
+    ```
+- initialize the project
+    ```bash
+    $ astro dev init
+    ```
 - start all docker containers
     ```bash
     $ astro dev start
